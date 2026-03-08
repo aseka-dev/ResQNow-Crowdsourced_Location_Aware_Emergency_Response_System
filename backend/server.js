@@ -3,7 +3,9 @@ const express = require("express");
 const connectDB = require('./db');
 const User = require('./models/User');
 
-const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("./routes/authRoutes.js");
+
+const incidentRoutes = require('./routes/incidentRoutes.js');
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(express.json());
 
 // Auth routes
 app.use("/api/auth", authRoutes);
+
+app.use('/api/incidents', incidentRoutes);
 
 app.get("/", (req, res) => {
   res.send("ResQNow backend running");
