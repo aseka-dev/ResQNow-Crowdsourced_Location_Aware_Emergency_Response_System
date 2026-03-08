@@ -3,9 +3,9 @@ const express = require("express");
 const connectDB = require('./db');
 const User = require('./models/User');
 
-const authRoutes = require("./routes/authRoutes");
+const authRoutes = require("./routes/authRoutes.js");
 
-const incidentRoutes = require('./routes/incidentRoutes');
+const incidentRoutes = require('./routes/incidentRoutes.js');
 
 const app = express();
 
