@@ -5,7 +5,7 @@ const User = require("./models/User");
 
 // Route imports
 const authRoutes = require("./routes/authRoutes.js");
-<<<<<<< HEAD
+
 const incidentRoutes = require("./routes/incidentRoutes.js");
 const reportRoutes = require("./routes/reportRoutes.js");
 const uploadRoutes = require("./routes/uploadRoutes");
@@ -13,7 +13,7 @@ const uploadRoutes = require("./routes/uploadRoutes");
 const app = express();
 
 // Root endpoint
-=======
+
 
 const incidentRoutes = require('./routes/incidentRoutes.js');
 
