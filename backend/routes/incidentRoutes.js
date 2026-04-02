@@ -1,27 +1,32 @@
 const express = require('express');
 const router = express.Router();
+
 const incidentController = require('../controllers/incidentController');
 const { verifyToken } = require('../middleware/authMiddleware');
-const allowRoles = require("../middleware/roleMiddleware"); // <-- ADD THIS
-<<<<<<< HEAD
-const { upload, uploadToCloudinary } = require("../middleware/upload"); 
-=======
-const upload = require('../middleware/uploadMiddleware'); 
+const allowRoles = require("../middleware/roleMiddleware");
+
+const { upload, uploadToCloudinary } = require("../middleware/upload");
+
+
 const Incident = require('../models/Incident');
->>>>>>> origin/main
 
 router.get('/', incidentController.getAllIncidents);
 
+
 router.post(
-  "/",
-  upload.single("image"),
-  uploadToCloudinary,
-  async (req, res) => {
-    // your logic here
-  }
+  '/',
+  verifyToken,
+  upload.single("image"), 
+  uploadToCloudinary,     
+  incidentController.createIncident 
 );
 
-router.put('/:id/status', verifyToken, allowRoles("Admin"), incidentController.updateIncidentStatus);
+router.put(
+  '/:id/status',
+  verifyToken,
+  allowRoles("Admin"),
+  incidentController.updateIncidentStatus
+);
 
 router.get('/clusters', async (req, res) => {
   try {
@@ -41,6 +46,5 @@ router.get('/clusters', async (req, res) => {
   }
 });
 
-module.exports = router;
 
-// 69c6a4b69df69176e86a036d
+module.exports = router;
