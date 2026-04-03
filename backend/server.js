@@ -7,6 +7,7 @@ const User = require("./models/User");
 const authRoutes = require("./routes/authRoutes.js");
 const incidentRoutes = require("./routes/incidentRoutes.js");
 const uploadRoutes = require("./routes/uploadRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 
